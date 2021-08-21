@@ -78,7 +78,10 @@ client.on('messageDelete', async (member,message) => {
 client.on('messageCreate', message => {
     if (message.content === 'ping') {
       message.channel.send('pong');
-    }
+    };
+    if (message.content === `${prefix}ping`) {  
+      message.channel.send(`Latency is ${Date.now() - message.createdTimestamp}ms. API Latency is ${Math.round(client.ws.ping)}ms`);
+    };
 });
 
 client.login(process.env.DISCORD_TOKEN);
