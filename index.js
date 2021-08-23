@@ -63,6 +63,14 @@ client.on('ready',() => {
 
       logChannel.send({ embeds: [inviterr] });
 
+      const channel = member.guild.channels.cache.find(ch => ch.name === 'spawn');
+
+      const welcomeMessage = new Discord.MessageEmbed()
+        .setColor('#2f3136')
+        .setTitle(`Привет 👋`)
+        .setDescription(`Для того что бы получить роль тебе нужно сделать ник по форме: [Семья] Имя Фамилия. И после этого отправить + в <#875045649207423007>`);
+
+      channel.send({ content: `<@${member.user.id}>`, embeds: [welcomeMessage] });
     });
   });
 
