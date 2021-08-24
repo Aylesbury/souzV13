@@ -62,8 +62,9 @@ client.on('ready',() => {
         .setDescription(`Пригласил: ${inviter.tag} Код: ${invite.code}`);
 
       logChannel.send({ embeds: [inviterr] });
+    });
 
-      const channel = member.guild.channels.cache.find(ch => ch.name === 'spawn');
+   const channel = member.guild.channels.cache.find(ch => ch.name === 'spawn');
 
       const welcomeMessage = new Discord.MessageEmbed()
         .setColor('#2f3136')
@@ -71,7 +72,7 @@ client.on('ready',() => {
         .setDescription(`Для того что бы получить роль тебе нужно сделать ник по форме: [Семья] Имя Фамилия. И после этого отправить + в <#875045649207423007>`);
 
       channel.send({ content: `<@${member.user.id}>`, embeds: [welcomeMessage] });
-    });
+
   });
 
 client.on('messageUpdate', async (oldMessage, newMessage) => {
